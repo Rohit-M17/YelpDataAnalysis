@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <link rel="stylesheet" href="{% static 'styles.css' %}">
+   </head>
+   <body>
+      <h1>Yelp Us - Yelp Review Heat Map and Classification</h1>
+      <form method="post">
+         {% csrf_token %}
+         <p>
+            <label for="zip_code">ZIP Code: </label>
+            <input id="zip_code" type="text" name="zip_code" value="">
+            <input type="submit" value="Submit!">
+         </p>
+      </form>
+   </body>
+         <div class="flex-container">
+            <div class="flex-child map">
+               {{ my_map | safe }}
+            </div>
+            <div class="flex-child lists">
+               <h3>Top Places</h3>
+               {{ top_list | safe }}   
+               <h3>Worst Places</h3>
+               {{ worst_list | safe }} 
+            </div>
+         </div> 
+
+</html>
